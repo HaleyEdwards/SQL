@@ -1,0 +1,16 @@
+CREATE TABLE MyStore (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, aisle INTEGER, sale TEXT);
+
+INSERT INTO MyStore VALUES (1, "shirt", 5, 3, "no");
+INSERT INTO MyStore VALUES (2, "jeans", 10, 2, "yes");
+INSERT INTO MyStore VALUES (3, "jacket", 8, 1, "yes");
+INSERT INTO MyStore VALUES (4, "shoes", 12, 4, "no");
+INSERT INTO MyStore VALUES (5, "tank top", 3, 1, "no");
+INSERT INTO MyStore VALUES (6, "shorts", 8, 2, "yes");
+INSERT INTO MyStore VALUES (7, "necklace", 4, 5, "no");
+INSERT INTO MyStore VALUES (8, "bracelet", 2, 5, "no");
+INSERT INTO MyStore VALUES (9, "earrings", 3, 5, "yes");
+INSERT INTO MyStore VALUES (10, "rings", 3, 5, "no");
+
+SELECT * FROM MyStore WHERE price >5;
+
+SELECT COUNT(sale), * FROM MyStore WHERE sale = "yes";
