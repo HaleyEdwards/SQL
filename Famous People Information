@@ -1,0 +1,55 @@
+CREATE TABLE famous_people 
+    (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    name TEXT, 
+    age INTEGER);
+    
+INSERT INTO famous_people (name, age) VALUES("Johnny Depp", 58);
+INSERT INTO famous_people (name, age) VALUES("Dwayne Johnson", 48);
+INSERT INTO famous_people (name, age) VALUES("Jim Carrey", 60);
+INSERT INTO famous_people (name, age) VALUES("Shania Twain", 50);
+INSERT INTO famous_people (name, age) VALUES("Mariah Carey", 45);
+INSERT INTO famous_people (name, age) VALUES("J.K. Rowling", 48);
+INSERT INTO famous_people (name, age) VALUES("Christopher Paolini", 30);
+INSERT INTO famous_people (name, age) VALUES("Jimmy Page", 76);
+INSERT INTO famous_people (name, age) VALUES("J.R.R Tolkien", 80);
+
+CREATE TABLE occupations
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT);
+    
+INSERT INTO occupations (name) VALUES("Actor");
+INSERT INTO occupations (name) VALUES("Actor");
+INSERT INTO occupations (name) VALUES("Actor");
+INSERT INTO occupations (name) VALUES("Singer");
+INSERT INTO occupations (name) VALUES("Singer");
+INSERT INTO occupations (name) VALUES("Author");
+INSERT INTO occupations (name) VALUES("Author");
+INSERT INTO occupations (name) VALUES("Musician");
+INSERT INTO occupations (name) VALUES("Author");
+
+CREATE TABLE best_work
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT);
+    
+INSERT INTO best_work (name) VALUES("Pirates of the Carribean");
+INSERT INTO best_work (name) VALUES("Moana");
+INSERT INTO best_work (name) VALUES("Ace Ventura");
+INSERT INTO best_work (name) VALUES("Man! I Feel Like a Woman");
+INSERT INTO best_work (name) VALUES("All I Want for Christmas is You");
+INSERT INTO best_work (name) VALUES("Harry Potter");
+INSERT INTO best_work (name) VALUES("Eragon");
+INSERT INTO best_work (name) VALUES("Led Zepplin");
+INSERT INTO best_work (name) VALUES("Lord of the Rings");
+
+SELECT name, age FROM famous_people;
+
+SELECT famous_people.name, best_work.name
+    FROM famous_people
+    JOIN best_work
+    ON best_work.id = famous_people.id;
+
+SELECT famous_people.name, occupations.name
+    FROM famous_people
+    JOIN occupations
+    ON occupations.id = famous_people.id
+    ORDER BY occupations.name;
