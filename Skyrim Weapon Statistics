@@ -1,0 +1,54 @@
+#Below is a project I worked on using Skyrim Weapon data I downloaded from Kaggle (Link: https://www.kaggle.com/datasets/elmartini/skyrim-weapons-dataset). 
+Skyrim is a popular role-playing game set in a fantasy world filled with dragons and magic. 
+
+CREATE TABLE BIT_DB.SkyrimData (
+id INTEGER PRIMARY KEY,
+Name VARCHAR NOT NULL UNIQUE,
+Damage INTEGER,
+Weight INTEGER,
+Gold INTEGER,
+Upgrade TEXT,
+Perk TEXT,
+Type TEXT,
+Category TEXT,
+Speed Integer);
+
+SELECT * FROM BIT_DB.SkyrimData
+LIMIT 5;
+
+SELECT name, gold, category FROM BIT_DB.SkyrimData
+GROUP BY name
+ORDER BY Gold DESC
+LIMIT 1;
+
+SELECT Name, Damage, Category FROM BIT_DB.SkyrimData
+GROUP BY name
+ORDER BY damage DESC
+LIMIT 1;
+
+SELECT name, gold, category FROM BIT_DB.SkyrimData
+GROUP BY name
+ORDER BY Gold DESC
+LIMIT 10;
+
+SELECT Name, Damage, Category FROM BIT_DB.SkyrimData
+GROUP BY name
+ORDER BY damage DESC
+LIMIT 10;
+
+SELECT Name, Damage, Category FROM BIT_DB.SkyrimData
+WHERE category <> 'Two-Handed'
+GROUP BY name
+ORDER BY damage DESC
+LIMIT 10;
+
+SELECT Name, Gold, Category, Type FROM BIT_DB.SkyrimData
+WHERE category <> 'Two-Handed'
+GROUP BY name
+ORDER BY gold DESC
+LIMIT 10;
+
+SELECT Upgrade, SUM(Gold), COUNT(name) FROM BIT_DB.SkyrimData
+GROUP BY Upgrade HAVING upgrade <> 'None required' AND upgrade <> 'N/A' AND upgrade <> ''
+ORDER BY SUM(Gold) DESC
+LIMIT 5;
